@@ -12,7 +12,7 @@ function App() {
         </div>
         {/* Navegação da Barra Lateral */}
         <nav className="sidebar-nav">
-          <a href="" className="nav-item-ativo">Dashboard</a>
+          <a href="" className="nav-item nav-item-ativo">Dashboard</a>
           <a href="" className="nav-item">Histórico</a>
           <a href="" className="nav-item">Análise</a>
         </nav>
@@ -45,7 +45,6 @@ function App() {
           <div className="flashcards-flashcard">
             <h3>Precipitação</h3>
             <p className="flashcard-valor1">10%</p>
-            <p className="flashcard-valor2">10mm</p>
             <p className="flashcard-descricao">em relação a última hora</p>
           </div>
           <div className="flashcards-flashcard">
@@ -57,9 +56,8 @@ function App() {
         </div>
         {/* Condições Diárias da Main */}
         <div className="main-diario">
-          <h2>Temperatura nas últimas 24 horas</h2>
           <div className="diario-grafico">
-
+            <h2>Temperatura nas últimas 24 horas</h2>
           </div>
           <div className="diario-clima">
             <h3>Condições de hoje</h3>
