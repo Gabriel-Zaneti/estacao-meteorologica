@@ -1,3 +1,5 @@
+import { LineChart, Line, ResponsiveContainer } from "recharts";
+
 const dadosTemperatura = [
     { hora: "00:00", temperatura: 18 },
     { hora: "06:00", temperatura: 21 },
@@ -8,7 +10,14 @@ const dadosTemperatura = [
 function GraficoTemp() {
     return (
         <div>
-            <h2>Gráfico Temperatura</h2>
+            <ResponsiveContainer widht="100%" height={200}>
+                <LineChart data={dadosTemperatura}>
+                    <Line
+                    type="monotone"
+                    dataKey="temperatura"
+                    />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
 
 

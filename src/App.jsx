@@ -1,12 +1,7 @@
 import './App.css'
 import GraficoTemp from './components/graficoTemperatura'
-import { Thermometer } from 'lucide-react'
-import { Droplets } from 'lucide-react'
-import { Wind } from 'lucide-react'
-import { CloudDrizzle } from 'lucide-react'
-import { CloudSun } from 'lucide-react'
-import { Cloud } from 'lucide-react'
-import { Clock } from 'lucide-react'
+import { Thermometer, Droplets, Wind, CloudDrizzle } from 'lucide-react'  //Icones-flashcards
+import { CloudSun, Cloud, Clock } from 'lucide-react' //icones-gerais
 
 function App() {
   return (
