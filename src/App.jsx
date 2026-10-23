@@ -70,7 +70,7 @@ function App() {
         {/* Condições Diárias da Main */}
         <div className="main-diario">
           <div className="diario-grafico">
-            <h2>Temperatura nas últimas 24 horas</h2>
+            <h2>Temperatura das ultimas 24 horas</h2>
             <GraficoTemp></GraficoTemp>
           </div>
           <div className="diario-clima">
