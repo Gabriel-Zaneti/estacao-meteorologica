@@ -1,4 +1,4 @@
-import { LineChart, Line, ResponsiveContainer,XAxis,YAxis, CartesianGrid, Tooltip } from "recharts";
+import { ComposedChart, Line, ResponsiveContainer,XAxis,YAxis, CartesianGrid, Tooltip, Area } from "recharts";
 import "./graficoTemperatura.css"
 const dadosTemperatura = [
     { hora: "00:00", temperatura: 18 },
@@ -14,13 +14,26 @@ function GraficoTemp() {
     return (
         <div className="graficos-temp">
             <ResponsiveContainer width="100%" height={225}>   {/* Tamanho do grafico */}
-                <LineChart data={dadosTemperatura}> {/* Estrutura do grafico */}
+                <ComposedChart data={dadosTemperatura}> {/* Estrutura do grafico */}
+                    <Area
+                    type="monotone"
+                    dataKey="temperatura"
+                    fill="rgb(11, 94, 230)"
+                    fillOpacity={0.2}
+                    tooltipType="none"
+                    isAnimationActive={true}
+                    animationDuration={2000}
+                    animationEasing="ease-in-out"
+                    
+                    />
                     <Line 
                     type="monotone"
                     dataKey="temperatura"
                     stroke="rgb(11, 94, 230)"
                     activeDot={{r:6}}
-
+                    isAnimationActive={true}
+                    animationDuration={2000}
+                    animationEasing="ease-in-out"
                     /> {/* Line- Como será a linha do grafico */}
                     <XAxis
                     dataKey="hora"
@@ -36,7 +49,7 @@ function GraficoTemp() {
                     <Tooltip
                     formatter={(temperatura) => `${temperatura} °C`} 
                     /> {/* Ao passar o mouse nos pontos do grafico, exibe as informações */}
-                </LineChart>
+                </ComposedChart>
             </ResponsiveContainer>
         </div>
 
