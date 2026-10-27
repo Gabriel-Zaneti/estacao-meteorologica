@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-filtro {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.filtro-data {
+  display: flex;
+  gap: 10px;
+  background-color: white;
+  align-items: center;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+
+.filtro-icone {
+  margin-top: 5px;
+}
+
+.filtro-botao {
+  background-color: rgb(11, 94, 230);
+  color: white;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.main-graficos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grafico-temperatura {
+  background-color: white;
+  padding: 10px;
+}
+
+.grafico-umidade {
+  background-color: white;
+  padding: 10px;
+}
+
+.grafico-precipitacao {
+  background-color: white;
+  padding: 10px;
+}
+
+.grafico-vento {
+  background-color: white;
+  padding: 10px;
+}

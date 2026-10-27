@@ -1,17 +1,24 @@
 import "../styles/Historico.css"
+import { useState } from "react";
 import { RefreshCcw, CalendarDays, CalendarClock } from "lucide-react";
 
-const medicoes=[
-  {data:"2026-10-26 00:00", temperatura: 18 , umidade:50 , precipitacao:20 , vento:34},
-  {data:"2026-10-26 06:00", temperatura: 21 , umidade:68 , precipitacao:80 , vento:28},
-  {data:"2026-10-26 12:00", temperatura: 26 , umidade:35 , precipitacao:22 , vento:21},
-  {data:"2026-10-26 18:00", temperatura: 24 , umidade:50 , precipitacao:20 , vento:34},
-  {data:"2026-10-26 19:00", temperatura: 35 , umidade:68 , precipitacao:80 , vento:28},
-  {data:"2026-10-26 22:00", temperatura: 40 , umidade:50 , precipitacao:20 , vento:34},
-  {data:"2026-10-26 23:00", temperatura: 26 , umidade:68 , precipitacao:80 , vento:28},
+const medicoes = [
+  { data: "2026-10-26 00:00", temperatura: 18, umidade: 50, precipitacao: 20, vento: 34 },
+  { data: "2026-10-26 06:00", temperatura: 21, umidade: 68, precipitacao: 80, vento: 28 },
+  { data: "2026-10-26 12:00", temperatura: 26, umidade: 35, precipitacao: 22, vento: 21 },
+  { data: "2026-10-26 18:00", temperatura: 24, umidade: 50, precipitacao: 20, vento: 34 },
+  { data: "2026-10-26 19:00", temperatura: 35, umidade: 68, precipitacao: 80, vento: 28 },
+  { data: "2026-10-26 22:00", temperatura: 40, umidade: 50, precipitacao: 20, vento: 34 },
 ];
 
 function Historico() {
+  // Paginação da Tabela
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const itensPagina = 6;
+  const indiceInicial = (paginaAtual - 1) * itensPagina;
+  const indiceFinal = (indiceInicial + itensPagina);
+  const totalPaginas = Math.ceil(medicoes.length / itensPagina);
+  const numerosPaginas = Array.from({ length: totalPaginas }, (_, i) => i + 1);
   return (
     <div className="historico">
       <div className="main-titulo">
@@ -56,7 +63,7 @@ function Historico() {
           </thead>
           {/* Corpo da Tabela(map percorre a lista, diferenciando as linhas atraves da KEY)*/}
           <tbody>
-            {medicoes.map((medicao) => (   
+            {medicoes.slice(indiceInicial, indiceFinal).map((medicao) => (
               <tr key={medicao.data}>
                 <td>{medicao.data}</td>
                 <td>{medicao.temperatura}</td>
