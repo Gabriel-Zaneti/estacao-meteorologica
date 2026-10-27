@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { Cloud, Clock } from 'lucide-react' //icones-gerais
 import Dashboard from './pages/Dashboard'
 import Historico from './pages/Historico'
@@ -23,9 +23,15 @@ function App() {
           </div>
           {/* Navegação da Barra Lateral */}
           <nav className="sidebar-nav">
-            <Link to="/" className="nav-item nav-item-ativo">Dashboard</Link>
-            <Link to="/historico" className="nav-item">Histórico</Link>
-            <Link to="/analise" className="nav-item">Análise</Link>
+            <NavLink to="/" className={({isActive}) => isActive ? 
+            "nav-item nav-item-ativo":"nav-item"}
+              >Dashboard</NavLink>
+            <NavLink to="/historico" className={({isActive})=> isActive ?
+            "nav-item nav-item-ativo":"nav-item"}
+            >Histórico</NavLink>
+            <NavLink to="/analise" className={({isActive})=> isActive ?
+            "nav-item nav-item-ativo":"nav-item"}
+            >Análise</NavLink>
           </nav>
 
         </aside>
