@@ -86,3 +86,19 @@
 .main-tabela tr:hover {
   background-color: #f5f6f7;
 }
+
+.main-paginacao {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+.main-paginacao button{
+  background-color: rgb(11, 94, 230);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+

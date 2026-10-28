@@ -9,6 +9,12 @@ const medicoes = [
   { data: "2026-10-26 18:00", temperatura: 24, umidade: 50, precipitacao: 20, vento: 34 },
   { data: "2026-10-26 19:00", temperatura: 35, umidade: 68, precipitacao: 80, vento: 28 },
   { data: "2026-10-26 22:00", temperatura: 40, umidade: 50, precipitacao: 20, vento: 34 },
+  { data: "2026-10-26 00:00", temperatura: 18, umidade: 50, precipitacao: 20, vento: 34 },
+  { data: "2026-10-26 06:00", temperatura: 21, umidade: 68, precipitacao: 80, vento: 28 },
+  { data: "2026-10-26 12:00", temperatura: 26, umidade: 35, precipitacao: 22, vento: 21 },
+  { data: "2026-10-26 18:00", temperatura: 24, umidade: 50, precipitacao: 20, vento: 34 },
+  { data: "2026-10-26 19:00", temperatura: 35, umidade: 68, precipitacao: 80, vento: 28 },
+  { data: "2026-10-26 22:00", temperatura: 40, umidade: 50, precipitacao: 20, vento: 34 }
 ];
 
 function Historico() {
@@ -19,6 +25,12 @@ function Historico() {
   const indiceFinal = (indiceInicial + itensPagina);
   const totalPaginas = Math.ceil(medicoes.length / itensPagina);
   const numerosPaginas = Array.from({ length: totalPaginas }, (_, i) => i + 1);
+  
+  numerosPaginas.map((numero) => (
+  <button onClick={() => setPaginaAtual(numero)}>
+    {numero}
+  </button>))
+
   return (
     <div className="historico">
       <div className="main-titulo">
@@ -74,6 +86,12 @@ function Historico() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="main-paginacao">
+        {numerosPaginas.map((numero) => (
+        <button key={numero} onClick={() => setPaginaAtual(numero)}>
+          {numero}
+        </button>))}
       </div>
 
     </div>
