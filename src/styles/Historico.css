@@ -93,12 +93,27 @@
   gap: 5px;
 }
 
-.main-paginacao button{
+.paginacao-pagina {
+  padding: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.paginacao-pagina-ativa {
   background-color: rgb(11, 94, 230);
   color: white;
+}
+
+.paginacao-proximo {
   padding: 10px;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: rgb(194, 210, 255);
 }
-
