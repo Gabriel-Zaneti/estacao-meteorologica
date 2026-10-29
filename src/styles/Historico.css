@@ -95,8 +95,8 @@
 
 .paginacao-pagina {
   padding: 10px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
@@ -109,6 +109,16 @@
 }
 
 .paginacao-proximo {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: rgb(194, 210, 255);
+}
+
+.paginacao-anterior {
   padding: 10px;
   border: none;
   border-radius: 5px;

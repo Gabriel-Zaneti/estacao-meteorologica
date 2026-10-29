@@ -1,6 +1,7 @@
 import "../styles/Historico.css"
 import { useState } from "react";
-import { RefreshCcw, CalendarDays, CalendarClock} from "lucide-react";
+import { RefreshCcw, CalendarDays, CalendarClock, ChevronLeft, ChevronRight} from "lucide-react";
+import { data } from "react-router-dom";
 
 const medicoes = [
   { data: "2026-10-26 00:00", temperatura: 1, umidade: 50, precipitacao: 20, vento: 34 },
@@ -54,6 +55,10 @@ const medicoes = [
 ];
 
 function Historico() {
+  // Filtros
+  const [dataInicial, setDataInicial] = useState("")
+
+
   // Paginação da Tabela
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [inicioPaginacao, setInicioPaginacao] = useState(1);
@@ -77,7 +82,11 @@ function Historico() {
           <div className="filtros-icone">
             <CalendarDays size={20}></CalendarDays>
           </div>
-          <p>01/04/2025 - 01/04/2026</p>
+          <input
+          type="date"
+          value={dataInicial} 
+          onChange={(e) => setDataInicial(e.target.value)}
+          />
         </div>
         <div className="filtros-horario">
           <div className="filtros-icone">
@@ -123,6 +132,12 @@ function Historico() {
         </table>
       </div>
       <div className="main-paginacao">
+        {inicioPaginacao > 1 &&(
+        <button className="paginacao-anterior"
+        onClick={() => setInicioPaginacao(inicioPaginacao - 4)}>
+        <ChevronLeft size={15}></ChevronLeft>
+        </button>
+      )}
         {numerosPaginas.map((numero) => (
         <button
           key={numero} 
@@ -134,7 +149,7 @@ function Historico() {
         {inicioPaginacao + 3 < totalPaginas &&(
         <button className="paginacao-proximo"
         onClick={() => setInicioPaginacao(inicioPaginacao + 4)}>
-        ...
+        <ChevronRight size={15}></ChevronRight>
         </button>
         )}
       </div>
