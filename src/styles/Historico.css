@@ -63,9 +63,9 @@
 
 .filtros-limpar {
   flex: 0.2;
-  margin-left: 5px;
-  margin-top: 6px;
+  margin-top: 2px;
   cursor: pointer;
+  border: none;
 }
 
 .main-registros {
@@ -97,6 +97,12 @@
 
 .main-tabela tr:hover {
   background-color: #f5f6f7;
+}
+
+.tabela-semfiltro {
+  text-align: center;
+  vertical-align: middle;
+  color: #777;
 }
 
 .main-paginacao {

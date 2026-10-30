@@ -181,7 +181,8 @@ const medicoesFiltradas = medicoes.filter((medicao) => {
           </thead>
           {/* Corpo da Tabela(map percorre a lista, diferenciando as linhas atraves da KEY)*/}
           <tbody>
-            {medicoesFiltradas
+          {medicoesFiltradas.length > 0 
+            ? (medicoesFiltradas
             .slice(indiceInicial, indiceFinal)
             .map((medicao, indice) => (
               <tr key={indice}>
@@ -191,7 +192,13 @@ const medicoesFiltradas = medicoes.filter((medicao) => {
                 <td>{medicao.precipitacao}</td>
                 <td>{medicao.vento}</td>
               </tr>
-            ))}
+            )))
+            : (<tr>
+              <td className="tabela-semfiltro" colSpan="5">
+                Nenhuma medição encontrada para os filtros selecionados
+              </td>
+            </tr>
+            )}
           </tbody>
         </table>
       </div>
