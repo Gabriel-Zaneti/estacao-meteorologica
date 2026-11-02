@@ -5,6 +5,7 @@ import GraficoPrecipitacao from "../components/graficoPrecipitacao"
 import GraficoVento from "../components/graficoVento"
 import { useState, useEffect } from "react"
 import { CalendarDays } from "lucide-react"
+import { buscarHistorico } from "../services/climaService"
 
 function Analise({ cidadeSelecionada }) {
 
@@ -19,7 +20,7 @@ function Analise({ cidadeSelecionada }) {
   const [dataFinalFiltro, setDataFinalFiltro] = useState("");
 
   const medicoesFiltradas = medicoes.filter((medicao) => {
-    const data = medicao.data.split(" ")[0];
+    const data = medicao.forecastAt.split("T")[0];
 
     return (
       (data >= dataInicialFiltro || dataInicialFiltro === "")
@@ -33,8 +34,17 @@ function Analise({ cidadeSelecionada }) {
       setErro(null);
       setLoading(true);
       try {
-        const dados = await buscarHistorico(cidadeSelecionada);
-        setMedicoes(dados);
+        const dados = await buscarHistorico(cidadeSelecionada, 0, 200);
+
+      const medicoesFormatadas = dados.content.map((medicao) => ({
+        ...medicao,
+        horario: new Date(medicao.forecastAt).toLocaleString("pt-BR", {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      }));
+
+      setMedicoes(medicoesFormatadas);
       } catch (error) {
         setErro(error);
         setMedicoes([]);
@@ -83,7 +93,7 @@ function Analise({ cidadeSelecionada }) {
       <div className="main-graficos">
         <div className="grafico-temperatura">
           <h2>Temperatura</h2>
-          <GraficoTemperaturaA dados={medicoesFiltradas}/>
+          <GraficoTemperaturaA dados={medicoesFiltradas} />
         </div>
         <div className="grafico-umidade">
           <h2>Umidade</h2>

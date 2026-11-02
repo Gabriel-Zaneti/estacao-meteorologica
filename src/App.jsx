@@ -10,12 +10,12 @@ import Analise from './pages/Analise'
 function App() {
   //Medição atual e cidade selecionada - Dashboard
   const [medicaoAtual, setMedicaoAtual] = useState(null);
-  const [cidadeSelecionada, setCidadeSelecionada] = useState(1);
+  const [cidadeSelecionada, setCidadeSelecionada] = useState("São Paulo");
   //Tratamento
   const [erro, setErro] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const dataAtualizacao = medicaoAtual ? new Date(medicaoAtual.dataHora) : null
+  const dataAtualizacao = medicaoAtual ? new Date(medicaoAtual.forecastAt) : null
 
   //Carrega as medições dos flashcards apartir da cidade escolhida
   useEffect(() => {

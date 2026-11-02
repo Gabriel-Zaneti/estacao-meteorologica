@@ -1,14 +1,14 @@
 import { ComposedChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Area } from "recharts";
 import "./graficoTemperatura.css"
 
-function GraficoTemperatura({dados}) {
+function GraficoTemperatura({ dados }) {
   return (
     <div className="graficos-temperatura">
       <ResponsiveContainer width="100%" height={225}>   {/* Tamanho do grafico */}
         <ComposedChart data={dados}> {/* Estrutura do grafico */}
           <Area
             type="monotone"
-            dataKey="temperatura"
+            dataKey="temperature"
             fill="rgb(11, 94, 230)"
             fillOpacity={0.2}
             tooltipType="none"
@@ -18,7 +18,7 @@ function GraficoTemperatura({dados}) {
           /> {/* Área do grafico */}
           <Line
             type="monotone"
-            dataKey="temperatura"
+            dataKey="temperature"
             stroke="rgb(11, 94, 230)"
             activeDot={{ r: 6 }}
             isAnimationActive={true}
@@ -26,7 +26,7 @@ function GraficoTemperatura({dados}) {
             animationEasing="ease-in-out"
           /> {/* Linha do grafico */}
           <XAxis
-            dataKey="hora"
+            dataKey="time"
             tick={{ fill: "#6B7280", fontSize: 12 }}
           /> {/* Eixo X do grafico */}
           <YAxis

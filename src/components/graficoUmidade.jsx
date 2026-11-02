@@ -8,7 +8,7 @@ function GraficoUmidade({ dados }) {
         <LineChart data={dados}> {/* Estrutura do grafico */}
           <Line
             type="monotone"
-            dataKey="umidade"
+            dataKey="humidity"
             stroke="rgb(11, 94, 230)"
             activeDot={{ r: 6 }}
             isAnimationActive={true}
@@ -16,7 +16,7 @@ function GraficoUmidade({ dados }) {
             animationEasing="ease-in-out"
           /> {/* Linha do grafico */}
           <XAxis
-            dataKey="hora"
+            dataKey="horario"
             tick={{ fill: "#6B7280", fontSize: 12 }}
           /> {/* Eixo X do grafico */}
           <YAxis

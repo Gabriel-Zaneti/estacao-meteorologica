@@ -8,7 +8,7 @@ function GraficoVento({ dados }) {
         <LineChart data={dados}> {/* Estrutura do grafico */}
           <Line
             type="monotone"
-            dataKey="vento"
+            dataKey="windSpeed"
             stroke="rgb(11, 94, 230)"
             activeDot={{ r: 6 }}
             isAnimationActive={true}
@@ -16,7 +16,7 @@ function GraficoVento({ dados }) {
             animationEasing="ease-in-out"
           /> {/* Linha do grafico */}
           <XAxis
-            dataKey="hora"
+            dataKey="horario"
             tick={{ fill: "#6B7280", fontSize: 12 }}
           /> {/* Eixo X do grafico */}
           <YAxis

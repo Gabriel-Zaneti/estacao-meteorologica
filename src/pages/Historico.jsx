@@ -16,7 +16,7 @@ function Historico({ cidadeSelecionada }) {
       setLoading(true);
       try {
         const dados = await buscarHistorico(cidadeSelecionada);
-        setMedicoes(dados);
+        setMedicoes(dados.content);
       } catch (error) {
         setErro(error);
         setMedicoes([]);
@@ -56,8 +56,8 @@ function Historico({ cidadeSelecionada }) {
   const [horarioFinalFiltro, setHorarioFinalFiltro] = useState("");
 
   const medicoesFiltradas = medicoes.filter((medicao) => {
-    const data = medicao.data.split(" ")[0];
-    const horario = medicao.data.split(" ")[1];
+    const data = medicao.forecastAt.split("T")[0];
+    const horario = medicao.forecastAt.split("T")[1].slice(0, 5);
 
     return (
       (data >= dataInicialFiltro || dataInicialFiltro === "")
@@ -178,11 +178,11 @@ function Historico({ cidadeSelecionada }) {
                 .slice(indiceInicial, indiceFinal)
                 .map((medicao, indice) => (
                   <tr key={indice}>
-                    <td>{medicao.data}</td>
-                    <td>{medicao.temperatura}</td>
-                    <td>{medicao.umidade}</td>
-                    <td>{medicao.precipitacao}</td>
-                    <td>{medicao.vento}</td>
+                    <td>{new Date(medicao.forecastAt).toLocaleString("pt-BR")}</td>
+                    <td>{medicao.temperature}°C</td>
+                    <td>{medicao.humidity}%</td>
+                    <td>{medicao.precipitation}mm</td>
+                    <td>{medicao.windSpeed}km/h</td>
                   </tr>
                 )))
               : (<tr>

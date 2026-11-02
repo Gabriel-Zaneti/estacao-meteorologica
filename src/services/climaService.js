@@ -1,5 +1,7 @@
+const API_URL="/api"
+
 export async function buscarMedicaoAtual(cidadeSelecionada) {
-  const url = `http://localhost:8080/api/medicoes/atual?cidade=${cidadeSelecionada}`;
+  const url = `${API_URL}/weather/${cidadeSelecionada}`;
   const resposta = await fetch(url);
   if (!resposta.ok) {
     throw new Error("Não foi possível buscar a medição.");
@@ -10,7 +12,7 @@ export async function buscarMedicaoAtual(cidadeSelecionada) {
 }
 
 export async function buscarCidades() {
-  const url = "http://localhost:8080/api/cidades";
+  const url = `${API_URL}/cities`;
   const resposta = await fetch(url);
   if (!resposta.ok) {
     throw new Error("Não foi possível buscar as cidades");
@@ -21,7 +23,7 @@ export async function buscarCidades() {
 }
 
 export async function buscarHistorico(cidadeSelecionada) {
-  const url = `http://localhost:8080/api/medicoes?cidade=${cidadeSelecionada}`;
+  const url = `${API_URL}/weather/${cidadeSelecionada}/history`;
   const resposta = await fetch(url);
   if (!resposta.ok) {
     throw new Error("Não foi possível acessar o histórico.");
@@ -32,7 +34,7 @@ export async function buscarHistorico(cidadeSelecionada) {
 }
 
 export async function buscarTemperaturasHoje(cidadeSelecionada) {
-  const url = `http://localhost:8080/api/medicoes?cidade=${cidadeSelecionada}`;
+  const url = `${API_URL}/weather/${cidadeSelecionada}/hourly`;
   const resposta = await fetch(url);
   if (!resposta.ok) {
     throw new Error("Não foi possível acessar as temperaturas diárias.");
@@ -43,10 +45,10 @@ export async function buscarTemperaturasHoje(cidadeSelecionada) {
 }
 
 export async function buscarCondicoes(cidadeSelecionada) {
-  const url = `http://localhost:8080/api/medicoes?cidade=${cidadeSelecionada}`;
+  const url = `${API_URL}/weather/${cidadeSelecionada}/daily`;
   const resposta = await fetch(url);
   if (!resposta.ok) {
-    throw new Error("Não foi possível acessar a descrição e temperatura min/max do dia.");
+    throw new Error("Não foi possível acessar a temperatura min/max do dia.");
   }
   const dados = await resposta.json()
 
