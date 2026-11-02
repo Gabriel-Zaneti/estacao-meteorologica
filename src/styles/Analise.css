@@ -24,11 +24,24 @@
   border-radius: 5px;
 }
 
+.filtro-data input {
+  border: none;
+  background-color: rgb(234, 244, 255);
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.filtro-data input:hover{
+  transform: scale(1.05);
+}
+
 .filtro-icone {
   margin-top: 5px;
 }
 
-.filtro-botao {
+.filtro-botao button {
+  border: none;
   background-color: rgb(11, 94, 230);
   color: white;
   padding: 10px;
@@ -38,6 +51,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.filtro-botao:hover {
+  transform: scale(1.05);
 }
 
 .main-graficos {

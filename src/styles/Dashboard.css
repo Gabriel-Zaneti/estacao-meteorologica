@@ -9,6 +9,25 @@
   color: rgb(41, 40, 40);
 }
 
+.cabecalho-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seletor-cidades {
+  background-color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.seletor-cidades:hover {
+  transform: scale(1.10);
+}
+
 .main-titulo h1 {
   font-size: 25px;
   padding-top: 10px;
@@ -30,6 +49,11 @@
   padding: 15px;
   border-radius: 10px;
   flex: 1;
+  transition: 0.2s ease-in-out;
+}
+
+.flashcards-flashcard:hover {
+  transform: scale(1.05);
 }
 
 .flashcard-icones {

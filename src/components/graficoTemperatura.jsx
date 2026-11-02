@@ -1,20 +1,11 @@
 import { ComposedChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Area } from "recharts";
 import "./graficoTemperatura.css"
-const dadosTemperatura = [
-  { hora: "00:00", temperatura: 18 },
-  { hora: "06:00", temperatura: 21 },
-  { hora: "12:00", temperatura: 26 },
-  { hora: "18:00", temperatura: 24 },
-  { hora: "19:00", temperatura: 35 },
-  { hora: "22:00", temperatura: 40 },
-  { hora: "23:00", temperatura: 26 },
-];
 
-function GraficoTemp() {
+function GraficoTemperatura({dados}) {
   return (
-    <div className="graficos-temp">
+    <div className="graficos-temperatura">
       <ResponsiveContainer width="100%" height={225}>   {/* Tamanho do grafico */}
-        <ComposedChart data={dadosTemperatura}> {/* Estrutura do grafico */}
+        <ComposedChart data={dados}> {/* Estrutura do grafico */}
           <Area
             type="monotone"
             dataKey="temperatura"
@@ -56,4 +47,4 @@ function GraficoTemp() {
   )
 }
 
-export default GraficoTemp
+export default GraficoTemperatura

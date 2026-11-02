@@ -18,9 +18,12 @@
   background-color: rgb(234, 244, 255);
   border-radius: 5px;
   padding: 5px;
+  cursor: pointer;
 }
 
-
+.main-filtros input:hover {
+  transform: scale(1.03);
+}
 
 .filtros-data {
   display: flex;
@@ -61,11 +64,19 @@
   cursor: pointer;
 }
 
+.filtros-botao:hover {
+  transform: scale(1.05);
+}
+
 .filtros-limpar {
   flex: 0.2;
   margin-top: 2px;
   cursor: pointer;
   border: none;
+}
+
+.filtros-limpar:hover {
+  transform: scale(1.05);
 }
 
 .main-registros {
@@ -92,7 +103,7 @@
 .main-tabela td {
   padding: 12px;
   border-bottom: 1px solid #dee2eb;
-  
+
 }
 
 .main-tabela tr:hover {
